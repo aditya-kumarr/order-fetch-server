@@ -25,7 +25,6 @@ userSchema.methods.setOrder = async function (Order, data) {
   const order = await Order.create({ ...data });
   this.orders.push(order._id);
   await this.save();
-  console.log("offer set");
 };
 
 module.exports = {
