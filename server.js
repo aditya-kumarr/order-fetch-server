@@ -11,7 +11,10 @@ app.use(
   })
 );
 
+app.use(express.json());
+
 app.post("/api/users", async (req, res) => {
+  console.log(req.body);
   try {
     if (req.body.name === "") res.json([]);
     console.log(req.body);
