@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const { findUser, findOrders } = require("./db");
+const InitialiseDB = require("./InitialiseDB");
 
 const app = express();
 const PORT = 3000 || process.env.PORT;
@@ -37,7 +38,7 @@ app.post("/api/orders", async (req, res) => {
     console.log(error.message);
   }
 });
-
+// InitialiseDB();
 app.use(express.json());
 
 app.use((req, res) => {
