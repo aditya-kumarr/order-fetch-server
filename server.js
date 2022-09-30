@@ -23,6 +23,18 @@ app.post("/api/users", async (req, res) => {
   }
 });
 
+app.post("/api/orders", async (req, res) => {
+  try {
+    console.log(req.body.date);
+    const orders = await findOrders(req.body.date);
+    console.log(orders);
+    console.log(req.body.date);
+    res.json(orders);
+  } catch (error) {
+    console.log(error.message);
+  }
+});
+
 app.use(express.json());
 
 app.use((req, res) => {
