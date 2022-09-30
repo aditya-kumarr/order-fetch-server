@@ -118,3 +118,7 @@ const findOrders = async (date) => {
     console.warn(error);
   }
 };
+module.exports = {
+  findUser: findUser,
+  findOrders: findOrders,
+};
