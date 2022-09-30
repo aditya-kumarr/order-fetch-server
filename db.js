@@ -17,4 +17,22 @@ mongoose.connect(
   }
 );
 
+const user1 = new User({
+  customerId: 1234,
+  firstName: "ramesh",
+  lastName: "malhotra",
+  order: [],
+});
+const user2 = new User({
+  customerId: 1235,
+  firstName: "john",
+  lastName: "doe",
+  order: [],
+});
+const user3 = new User({
+  customerId: 1236,
+  firstName: "mohd",
+  lastName: "islam",
+  order: [],
+});
 
