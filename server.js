@@ -1,5 +1,7 @@
 const express = require("express");
 const cors = require("cors");
+const { findUser, findOrders } = require("./db");
+
 const app = express();
 const PORT = 3000 || process.env.PORT;
 
@@ -8,10 +10,20 @@ app.use(
     origin: "*",
   })
 );
+
+app.post("/api/users", async (req, res) => {
+  try {
+    if (req.body.name === "") res.json([]);
+    console.log(req.body);
+    const users = await findUser(req.body.name);
+    console.log(users);
+    res.json(users);
+  } catch (error) {
+    console.log(error.message);
+  }
+});
+
 app.use(express.json());
-
-
-
 
 app.use((req, res) => {
   res.end();
