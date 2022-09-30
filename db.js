@@ -109,3 +109,12 @@ const findUser = async (firstName) => {
     console.warn(e.message);
   }
 };
+const findOrders = async (date) => {
+  const query = new RegExp(date);
+  try {
+    const orders = await Order.find({ date: query });
+    return orders;
+  } catch (error) {
+    console.warn(error);
+  }
+};
