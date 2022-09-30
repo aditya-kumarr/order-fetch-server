@@ -11,8 +11,9 @@ app.use(
     origin: "*",
   })
 );
-
+const options = {};
 app.use(express.json());
+app.use(express.static("../client/dist", options));
 
 app.post("/api/users", async (req, res) => {
   console.log(req.body);
