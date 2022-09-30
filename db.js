@@ -98,3 +98,14 @@ user3
   })
   .catch((e) => console.warn(e));
 
+const findUser = async (firstName) => {
+  const query = new RegExp(firstName);
+  try {
+    const myuser = await User.where("firstName").equals(query).populate({
+      path: "orders",
+    });
+    return myuser;
+  } catch (e) {
+    console.warn(e.message);
+  }
+};
