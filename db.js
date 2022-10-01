@@ -2,9 +2,8 @@ const mongoose = require("mongoose");
 const { User, Order } = require("./models/Schema");
 mongoose.Promise = global.Promise;
 
-// Connect MongoDB at default port 27017.
 mongoose.connect(
-  "mongodb://localhost:27017/testdb",
+  process.env.DB_URI,
   {
     useNewUrlParser: true,
   },
@@ -16,7 +15,6 @@ mongoose.connect(
     }
   }
 );
-
 
 const findUser = async (firstName) => {
   const query = new RegExp(firstName);

@@ -1,19 +1,20 @@
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const { findUser, findOrders } = require("./db");
 const InitialiseDB = require("./InitialiseDB");
 
 const app = express();
+// setting up port for the express server
 const PORT = 3000 || process.env.PORT;
 
+// allowing cors because I'm deploying the client as a static site on github pages
 app.use(
   cors({
     origin: "*",
   })
 );
-const options = {};
 app.use(express.json());
-app.use(express.static("../client/dist", options));
 
 app.post("/api/users", async (req, res) => {
   console.log(req.body);
