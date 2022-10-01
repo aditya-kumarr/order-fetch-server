@@ -31,6 +31,7 @@ app.post("/api/users", async (req, res) => {
 // api route for fetching orders by date
 app.post("/api/orders", async (req, res) => {
   try {
+    if (req.body.date === "") res.json([]);
     console.log(req.body.date);
     const orders = await findOrders(req.body.date);
     console.log(orders);
