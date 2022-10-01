@@ -15,7 +15,7 @@ app.use(
   })
 );
 app.use(express.json());
-
+// api route for fetching users along with their orders by passing firstName
 app.post("/api/users", async (req, res) => {
   console.log(req.body);
   try {
@@ -28,7 +28,7 @@ app.post("/api/users", async (req, res) => {
     console.log(error.message);
   }
 });
-
+// api route for fetching orders by date
 app.post("/api/orders", async (req, res) => {
   try {
     console.log(req.body.date);
@@ -40,8 +40,10 @@ app.post("/api/orders", async (req, res) => {
     console.log(error.message);
   }
 });
-// InitialiseDB();
 app.use(express.json());
+
+// This function is supposed to initialise the given users in the assignment; I've called it once to add them to database.
+// InitialiseDB();
 
 app.use((req, res) => {
   res.end();

@@ -2,6 +2,8 @@ const mongoose = require("mongoose");
 const { User, Order } = require("./models/Schema");
 mongoose.Promise = global.Promise;
 
+
+// connecting to the mongoDB cluster
 mongoose.connect(
   process.env.DB_URI,
   {
@@ -16,6 +18,8 @@ mongoose.connect(
   }
 );
 
+
+// Query for finding the user by firstName then populating the orders by their ID
 const findUser = async (firstName) => {
   const query = new RegExp(firstName);
   try {
@@ -27,6 +31,8 @@ const findUser = async (firstName) => {
     console.warn(e.message);
   }
 };
+
+// Query for finding the Orders by providing a Date
 const findOrders = async (date) => {
   const query = new RegExp(date);
   try {
