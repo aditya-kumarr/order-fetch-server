@@ -2,8 +2,8 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const { findUser, findOrders } = require("./db");
-const InitialiseDB = require("./InitialiseDB");
 
+const InitialiseDB = require("./InitialiseDB");
 const app = express();
 // setting up port for the express server
 const PORT = 3000 || process.env.PORT;
